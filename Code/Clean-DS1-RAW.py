@@ -177,7 +177,7 @@ def rebuild_old_matrix():
 
 def save_data():
     d = rebuild_old_matrix()
-    file = open('DS1.csv', 'w')
+    file = open('./Data/DS1.csv', 'w')
     
     with file:   
         write = csv.writer(file)

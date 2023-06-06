@@ -19,7 +19,7 @@ ELEMENT3 = 'X'
 
 
 IMPORT_FILENAME = 'Data/Generated Materials/GC_Ternary_' + ELEMENT1 +'80' + '+' + ELEMENT2 + '+' + ELEMENT3 + '.csv'
-#SAVE_FILENAME =
+SAVE_FILENAME = './Plots/GC_Ternary_Plot' + ELEMENT1 + '80+' + ELEMENT2 + '+' + ELEMENT3 + '.png'
 
 # Reads in raw data and returns it in a list of lists
 def importData(filename): 
@@ -225,8 +225,9 @@ def pythonTernaryZoom():
 
 
     tax.ax.set_aspect('equal', adjustable='box')
-    #tax.savefig(SAVE_FILENAME)
+    
     tax._redraw_labels()
+    tax.savefig(SAVE_FILENAME)
     
     tax.show()
 

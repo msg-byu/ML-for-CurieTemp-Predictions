@@ -111,7 +111,7 @@ def createCombinedData():
 
 def save_data():
     d = createCombinedData()
-    file = open('DS1+DS2.csv', 'w')
+    file = open('./Data/DS1+DS2.csv', 'w')
     
     with file:
         write = csv.writer(file)

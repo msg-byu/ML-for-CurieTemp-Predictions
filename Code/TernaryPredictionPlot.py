@@ -19,7 +19,7 @@ ELEMENT3 = 'X'
 
 
 IMPORT_FILENAME = 'Data/Generated Materials/GC_Ternary_' + ELEMENT1 + '+' + ELEMENT2 + '+' + ELEMENT3 + '.csv'
-#SAVE_FILENAME =
+SAVE_FILENAME = './Plots/GC_Ternary_Plot' + ELEMENT1 + '+' + ELEMENT2 + '+' + ELEMENT3 + '.png'
 
 # Reads in raw data and returns it in a list of lists
 def importData(filename): 
@@ -206,7 +206,7 @@ def pythonTernary():
     tax.get_axes().axis('off')
 
     tax._redraw_labels()
-    #tax.savefig(SAVE_FILENAME)
+    tax.savefig(SAVE_FILENAME)
 
     plt.show()
 

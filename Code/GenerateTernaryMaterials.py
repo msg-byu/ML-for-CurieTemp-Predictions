@@ -332,8 +332,7 @@ def save_data():
         write.writerows(d)
 
 
-removeDuplicates()
-
+save_data()
 
 
 

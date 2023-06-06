@@ -149,10 +149,11 @@ def calcPlotError():
     plt.plot([0,1400],[0,1400],color='red')
     plt.xlabel('Predicted $T_\mathrm{C}$ (K)')
     plt.ylabel('Experimental $T_\mathrm{C}$ (K)')
-    plt.title('Random Forest Prediction')
+    plt.title('Random Forest Prediction - DS2')
     #plt.text(100, 1400, f'%d Kelvin Mean Average Error' % MAE, fontsize = 12)
     plt.text(100, 1400, f'%d%% within 50 K' % b50, fontsize = 18)
     plt.text(100, 1300, f'%d%% within 100 K' % b100, fontsize = 18)
+    plt.savefig("./Plots/Random Forest DS2.png", bbox_inches='tight')
 
 def KCrossVal():
     from sklearn.model_selection import RandomizedSearchCV
@@ -327,6 +328,7 @@ def calcPlotErrorAbove600():
     #plt.text(100, 1400, f'%d Kelvin Mean Average Error' % MAE, fontsize = 12)
     plt.text(100, 1400, f'%d \% within 50 K' % b50, fontsize = 17)
     plt.text(100, 1300, f'%d \% within 100 K' % b100, fontsize = 17)
+    
 
 
 
@@ -409,6 +411,7 @@ def errorTCReal():
     plt.legend(loc = 'upper left', markerscale = 3)
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('Random Forest Experimental $T_\mathrm{C}$ vs Error')
+    plt.savefig("./Plots/Random Forest Experimental Error DS2.png", bbox_inches='tight')
     
 
 
@@ -467,6 +470,8 @@ def errorTCPredicted():
 
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('Random Forest Predicted $T_\mathrm{C}$ vs Error')
+    plt.savefig("./Plots/Random Forest Predicted Error DS2.png", bbox_inches='tight')
+    
 
 
 calcPlotError()

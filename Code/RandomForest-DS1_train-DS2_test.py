@@ -119,6 +119,7 @@ def calcPlotError():
     #plt.text(100, 1400, f'%d Kelvin Mean Average Error' % MAE, fontsize = 12)
     plt.text(100, 1400, f'%d%% within 50 K' % b50, fontsize = 18)
     plt.text(100, 1300, f'%d%% within 100 K' % b100, fontsize = 18)
+    plt.savefig("./Plots/DS1_train DS2_test Random Forest.png", bbox_inches='tight')
 
     '''for i in range(len(pred)):
         for j in range(len(pred)):
@@ -181,6 +182,7 @@ def errorTCReal():
     plt.legend(loc = 'upper left', markerscale = 3)
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('Random Forest Experimental $T_\mathrm{C}$ vs Error')
+    plt.savefig("./Plots/DS1_train DS2_test Random Forest Experimental Error.png", bbox_inches='tight')
     
 
 
@@ -239,6 +241,8 @@ def errorTCPredicted():
 
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('Random Forest Predicted $T_\mathrm{C}$ vs Error')
+
+    plt.savefig("./Plots/DS1_train DS2_test Random Forest Predicted Error.png", bbox_inches='tight')
 
 
 calcPlotError()

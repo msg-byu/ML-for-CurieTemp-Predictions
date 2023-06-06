@@ -150,7 +150,7 @@ def createBinaryData(elem1, elem2):
     binData = []
     
     for i in range(101):
-        comp = np.zeros(87).tolist()
+        comp = np.zeros(85).tolist()
         num1 = i * 0.01
         num2 = (100 - i)*0.01
         comp[compInds[0]] = num1
@@ -303,35 +303,10 @@ def makeSubplots():
     fig.tight_layout()
     #fig.savefig('./Curie Temp Plots/Final Figs/TCSweep.png', bbox_inches='tight')
     #fig.suptitle("KNN Sweep")
-    #fig.savefig("KNN Prediction Sweep.png")
+    fig.savefig("./Plots/Random Forest Prediction Sweep - DS1.png", bbox_inches='tight')
     plt.show()
 
 
-def makeSubplotsCompare():
-    x = 1
-    y = 3
-
-    compounds = [[['Fe','Ni'],['Co','Mn'],['Ni','Rh']]]
-
-    fig, axs = plt.subplots(x, y, figsize=(4,12))
-
-    for i in range(x):
-        for j in range(y):
-            
-            elem1 = compounds[i][j][0]
-            elem2 = compounds[i][j][1]
-
-            pred, xReal, yReal = createSubPlot(elem1, elem2)
-            axs[i, j].plot(range(101), pred, label = 'Predicted')
-            if len(xReal) > 0:
-                axs[i, j].scatter(xReal, yReal, color = 'red', label = 'Experimental')
-            axs[i, j].set_xlabel('Percentage of ' + elem1, fontsize=14)
-            axs[i, j].set_ylabel('Curie Temp (K)', fontsize=14)
-            axs[i, j].set_title('Combination of ' + elem1 + ' and ' + elem2, fontsize=16)
-
-    axs[0, 0].legend(fontsize=11.5, loc = 'upper left')
-    fig.tight_layout()
-    plt.show()
 
 makeSubplots()
 

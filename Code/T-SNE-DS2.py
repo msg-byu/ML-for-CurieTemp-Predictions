@@ -165,10 +165,7 @@ def easyTSNE2Sorted():
     gfg.figure.colorbar(sm,  shrink = 0.7, aspect = 40, label = "$T_\mathrm{C}$ (Kelvin)" )
     #gfg.text(-77, 57, '(b)', fontsize = 18, weight='bold')
     gfg.set(title="$T_\mathrm{C}$ Data T-SNE Projection - DS2")
-    #gfg.legend(fontsize = 16, title = "TC (Kelvin)", bbox_to_anchor=(1,1), loc='upper left')
-    #gfg.legend(ncol=3, bbox_to_anchor=(0.90, 1.13), loc='upper left', borderaxespad=0,fontsize = 12)
-    #plt.savefig('./Curie Temp Plots/Final Figs/TCTSNE.png',bbox_inches='tight')
-    #plt.savefig('./Curie Temp Plots/Final Figs/Valentin-TCTSNE.png', bbox_inches='tight')
+    plt.savefig('./Plots/TempTSNE-DS2.png', bbox_inches='tight')
 
 
 
@@ -367,10 +364,125 @@ def pieParty(xcor, ycor):
     # plot window is too small to fit the legend so save the plot directly
     #plt.savefig('./Curie Temp Plots/Final Figs/Valentin-ELEMTSNEPIE.png', bbox_inches='tight')
     #plt.savefig('./Curie Temp Plots/Final Figs/ELEMTSNEPIE.png', bbox_inches='tight')
+
+def TSNEMajorityElement():
+    import matplotlib as mpl
+
+    print(majY)
+
+    #Create custom color map
+
+    #Choose how many colors you need
+    num_colors = len(head)
+
+    #Choose colormap
+    cm = mpl.cm.get_cmap(name='jet')
+
+    #Divide color map into the ampunt of colors you need and save them in an array
+    colors = [cm(1.*i/num_colors) for i in range(num_colors)]
+
     
+    colorCopy = colors.copy()
+
+    #Indexes of Co, Fe, Ni, O
+    ind = [17, 26, 38, 50]
+
+    #Swap colors of major elements
+    colors[ind[1]] = colorCopy[-1]
+    colors[-1] = colorCopy[ind[1]]
+
+    colors[ind[3]] = colorCopy[66]
+    colors[66] = colorCopy[ind[3]]
+
+
+
+    # Set up plot format
+    fig, ax = plt.subplots(figsize=(7, 7))
+    ax.set_xlabel('Comp-1', fontsize = 18)
+    ax.set_ylabel('Comp-2', fontsize = 18)
+
+    
+    #ax.text(-77, 60, '(a)', fontsize = 18, weight='bold')
+    ax.set_title("$T_\mathrm{C}$ Data T-SNE Projection - DS2", fontsize = 18)
+
+    # loops through the list of points
+    for i in range(len(tx)):
+        # loops through each pie
+        color_ind = head.index(majY[i])
+        #print(color_ind)
+        # Plot each pie piece individually. xcor[k] and ycor[k] are the coordinates for the actual data point
+        # marker is the custom pie slice marker we made
+        # s is the size of the marker
+        # colors[j[2]] grabs the corresponding color in the custom colors array we made earlier
+        ax.scatter(tx[i], ty[i], facecolor=colors[color_ind], edgecolors='black', linewidth=0.4)
+
+    # Just a bunch of stuff the format the legend
+    legend_elements = []
+    for i in range(len(head)):
+        legend_elements.append(mpl.lines.Line2D([0], [0], marker='o', linestyle='None', label=head[i],
+                          color=colors[i], markersize=6))
+
+    circleRegionsValentinMBP(ax)
+    legend = ax.legend(handles = legend_elements, ncol=4, bbox_to_anchor=(1,1.05), loc='upper left', borderaxespad=0, fontsize = 14, columnspacing = 0.25)
+    plt.savefig('./Plots/ELEMTSNE-DS2.png', bbox_inches='tight')
+
+
+# Creates hard coded cirles around certain clusters
+def circleRegionsValentinMBP(ax):
+    radius1 = 95
+    centerx1 = -13
+    centery1 = 27
+    ax.plot(centerx1, centery1, 'o', ms=radius1 * 2, mec='red', mfc='none', mew=2)
+
+    ax.annotate('Co Majority', xy=[centerx1, centery1], xytext=(140, 80),
+    textcoords='offset points',
+    color='black', size='medium',
+    arrowprops=dict(
+        arrowstyle='simple,tail_width=0.3,head_width=0.8,head_length=0.8',
+        facecolor='black', shrinkB=radius1 * 1.2)
+    )
+
+    radius2 = 82
+    centerx2 = -10
+    centery2 = -37
+    ax.plot(centerx2, centery2, 'o', ms=radius2 * 2, mec='red', mfc='none', mew=2)
+
+    ax.annotate('Fe Majority', xy=[centerx2, centery2], xytext=(90, -70),
+    textcoords='offset points',
+    color='black', size='medium',
+    arrowprops=dict(
+        arrowstyle='simple,tail_width=0.3,head_width=0.8,head_length=0.8',
+        facecolor='black', shrinkB=radius2 * 1.2)
+    )
+
+    radius3 = 45
+    centerx3 = -60
+    centery3 = -22
+    ax.plot(centerx3, centery3, 'o', ms=radius3 * 2, mec='red', mfc='none', mew=2)
+
+    ax.annotate('O Majority', xy=[centerx3, centery3], xytext=(-20, -120),
+    textcoords='offset points',
+    color='black', size='medium',
+    arrowprops=dict(
+        arrowstyle='simple,tail_width=0.3,head_width=0.8,head_length=0.8',
+        facecolor='black', shrinkB=radius3 * 1.2)
+    )
+
+    radius4 = 30
+    centerx4 = 66
+    centery4 = -16
+    ax.plot(centerx4, centery4, 'o', ms=radius4 * 2, mec='red', mfc='none', mew=2)
+
+    ax.annotate('Ni Majority', xy=[centerx4, centery4], xytext=(-40, -90),
+    textcoords='offset points',
+    color='black', size='medium',
+    arrowprops=dict(
+        arrowstyle='simple,tail_width=0.3,head_width=0.8,head_length=0.8',
+        facecolor='black', shrinkB=radius4 * 1.2)
+    )
 
 easyTSNE2Sorted()
-pieParty(tx, ty)
+TSNEMajorityElement()
 
 
 plt.show()

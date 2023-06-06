@@ -216,8 +216,9 @@ def calcPlotError():
 
     plt.text(0, 1250, f'%d%% within 50 K: MAST-ML' % b50ML, fontsize = 17)
     plt.text(0, 1200, f'%d%% within 100 K: MAST-ML' % b100ML, fontsize = 17)
+    plt.savefig("./Plots/MASTML Random Forest.png", bbox_inches='tight')
 
-    #plt.savefig("./Curie Temp Plots/Final Figs/Random Forest Prediction MAST-ML vs Composition.png", bbox_inches='tight')
+ 
 
    
 
@@ -300,6 +301,7 @@ def errorTCPredicted():
     plt.legend(loc = 'upper right', markerscale = 3)
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('Random Forest Predicted $T_\mathrm{C}$ vs Error (MASTML)')
+    plt.savefig("./Plots/MASTML Random Forest Predicted Error.png", bbox_inches='tight')
 
 
 def errorTCReal():
@@ -354,6 +356,7 @@ def errorTCReal():
     plt.legend(loc = 'upper left', markerscale = 3)
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('Random Forest Real $T_\mathrm{C}$ vs Error (MASTML)')
+    plt.savefig("./Plots/MASTML Random Forest Experimental Error.png", bbox_inches='tight')
 
 
 calcPlotError()

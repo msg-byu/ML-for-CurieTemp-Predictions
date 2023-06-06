@@ -153,6 +153,8 @@ def KNNpredict(num):
     plt.text(100, 1400, f'%d%% within 50 K' % b50, fontsize = 18)
     plt.text(100, 1300, f'%d%% within 100 K' % b100, fontsize = 18)
 
+    plt.savefig("./Plots/2 Nearest Neighbors.png", bbox_inches='tight')
+
     return MAE
 
 # Plots the mean absolute error for k values 1 through 20
@@ -296,6 +298,7 @@ def errorKNNPredicted():
     plt.legend(loc = 'upper right', markerscale = 3)
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('2NN Predicted $T_\mathrm{C}$ vs Error')
+    plt.savefig("./Plots/2 Nearest Neighbors Predicted Error.png", bbox_inches='tight')
 
 
 def errorKNNReal():
@@ -356,6 +359,8 @@ def errorKNNReal():
     plt.legend(loc = 'lower right', markerscale = 3)
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('2NN Experimental $T_\mathrm{C}$ vs Error')
+
+    plt.savefig("./Plots/2 Nearest Neighbors Experimental Error.png", bbox_inches='tight')
 
 
 KNNpredict(2)

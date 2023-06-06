@@ -8,12 +8,13 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
-HEADER = ['Name', 'Temp', 'Ag', 'Al', 'Am', 'As', 'Au', 'B', 'Ba', 'Be', 'Bi', 'Bk', 'Br', 'C', 'Ca', 'Cd', 
-    'Ce', 'Cf', 'Cl', 'Cm', 'Co', 'Cr', 'Cs', 'Cu', 'D', 'Dy', 'Er', 'Eu', 'F', 'Fe', 'Ga', 'Gd', 
-    'Ge', 'H', 'Hf', 'Hg', 'Ho', 'I', 'In', 'Ir', 'K', 'La', 'Li', 'Lu', 'Mg', 'Mn', 'Mo', 'N', 
-    'Na', 'Nb', 'Nd', 'Ni', 'Np', 'O', 'Os', 'P', 'Pb', 'Pd', 'Pm', 'Pr', 'Pt', 'Pu', 'Rb', 'Re', 
-    'Rh', 'Ru', 'S', 'Sb', 'Sc', 'Se', 'Si', 'Sm', 'Sn', 'Sr', 'T', 'Ta', 'Tb', 'Te', 'Th', 'Ti', 
-    'Tl', 'Tm', 'U', 'V', 'W', 'Y', 'Yb', 'Zn', 'Zr']
+HEADER = ['Name', 'Temp', 'Ag', 'Al', 'Am', 'As', 'Au', 'B', 'Ba', 'Be', 'Bi', 'Bk', 'Br', 'C', 'Ca', 
+            'Cd', 'Ce', 'Cf', 'Cl', 'Cm', 'Co', 'Cr', 'Cs', 'Cu', 'Dy', 'Er', 'Eu', 'F',
+              'Fe', 'Ga', 'Gd', 'Ge', 'H', 'Hf', 'Hg', 'Ho', 'I', 'In', 'Ir', 'K', 'La',
+                'Li', 'Lu', 'Mg', 'Mn', 'Mo', 'N', 'Na', 'Nb', 'Nd', 'Ni', 'Np', 'O', 'Os',
+                  'P', 'Pb', 'Pd', 'Pm', 'Pr', 'Pt', 'Pu', 'Rb', 'Re', 'Rh', 'Ru', 'S', 'Sb',
+                    'Sc', 'Se', 'Si', 'Sm', 'Sn', 'Sr', 'Ta', 'Tb', 'Te', 'Th', 'Ti', 'Tl',
+                      'Tm', 'U', 'V', 'W', 'Y', 'Yb', 'Zn', 'Zr']
 
 def getHeaderIndex(elem):
     for i in range(len(HEADER)):
@@ -181,6 +182,7 @@ def calcPlotError():
     #plt.text(100, 1400, f'%d Kelvin Mean Average Error' % MAE, fontsize = 12)
     plt.text(700, 1400, f'%d%% within 50 K' % b50, fontsize = 18)
     plt.text(700, 1300, f'%d%% within 100 K' % b100, fontsize = 18)
+    plt.savefig("./Plots/DS1+DS2 Random Forest.png", bbox_inches='tight')
 
 
 
@@ -237,6 +239,7 @@ def errorTCPredicted():
     plt.legend(loc = 'upper right', markerscale = 3)
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('Random Forest Predicted $T_\mathrm{C}$ vs Error')
+    plt.savefig("./Plots/DS1+DS2 Random Forest Predicted Error.png", bbox_inches='tight')
 
 
 def errorTCReal():
@@ -291,6 +294,7 @@ def errorTCReal():
     plt.legend(loc = 'upper left', markerscale = 3)
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('Random Forest Real $T_\mathrm{C}$ vs Error')
+    plt.savefig("./Plots/DS1+DS2 Random Forest Experimental Error.png", bbox_inches='tight')
 
 
 
