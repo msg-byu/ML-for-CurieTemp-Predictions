@@ -58,7 +58,7 @@ def importMastMLData():
 def selectData(data):
     rnd.seed(50) #97, 70, 50
     train = []
-    sampleSize = 767
+    sampleSize = round(len(data)/3)
 
     test = rnd.sample(data, sampleSize)
     #control = data
@@ -91,7 +91,7 @@ def randForestMe():
     y = np.array(trainTc)
     print('Made array')
     # define the model
-    model = RandomForestRegressor(random_state=30)
+    model = RandomForestRegressor(max_depth=90, n_estimators=1800, min_samples_leaf = 1, min_samples_split = 2, random_state=30)
     # fit the model on the whole dataset
     model.fit(X, y)
     # make predictions
