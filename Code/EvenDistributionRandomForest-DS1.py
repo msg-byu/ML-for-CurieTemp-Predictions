@@ -50,7 +50,7 @@ def binData(data):
 
     for i in data:
         if i[1] < 150:
-            print(i[1])
+            #print(i[1])
             bin150.append(i)
         elif i[1] < 300:
             bin300.append(i)
