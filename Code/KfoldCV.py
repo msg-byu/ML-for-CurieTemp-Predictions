@@ -52,7 +52,7 @@ def importData(filename):
 # Separates data into a training set and a test set
 def selectData():
 
-    lst = importData("Data/DS1+DS2.csv")
+    lst = importData("Data/DS1.csv")
 
     # making dataframe 
     df = pd.DataFrame(lst[1:], columns=lst[0])
@@ -71,7 +71,7 @@ def KfoldCrossVal():
 
     rcv = RepeatedKFold(n_splits=3, n_repeats=50, random_state=1)
 
-    model = RandomForestRegressor(max_depth=90, n_estimators=1800, min_samples_leaf = 1, min_samples_split = 2)
+    model = RandomForestRegressor(max_depth=90, n_estimators=1800, min_samples_leaf = 1, min_samples_split = 2, random_state=30)
 
     scores = cross_val_score(model, X, y, scoring = 'neg_mean_absolute_error', cv=rcv, n_jobs=-1)
 

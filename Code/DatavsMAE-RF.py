@@ -236,7 +236,7 @@ def plotPlot():
     plt.scatter(x,y)
     #plt.plot(x2, y2)
     plt.xlabel('Training Data Size')
-    plt.ylabel('MAE')
+    plt.ylabel('MAE (K)')
     plt.yscale('log')
     plt.xscale('log')
     plt.title('Training Data Size vs MAE')
@@ -306,7 +306,7 @@ def trainVSMAE():
     for i in MAESmat:
         plt.plot(trainingSize, i)
     plt.xlabel('Training Data Size')
-    plt.ylabel('MAE')
+    plt.ylabel('MAE (K)')
     plt.title('Training Data Size vs MAE')
 
     

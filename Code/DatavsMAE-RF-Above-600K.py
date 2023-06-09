@@ -241,7 +241,7 @@ def plotPlot():
     plt.plot(x, y)
     plt.scatter(x,y)
     plt.xlabel('Training Data Size')
-    plt.ylabel('MAE')
+    plt.ylabel('MAE (K)')
     plt.yscale('log')
     plt.xscale('log')
     plt.title('Training Data Size vs MAE Above 600K')
@@ -256,7 +256,7 @@ def LogLog(x, S, I):
 
 
 
-#trainVSMAEavg()
+trainVSMAEavg()
 plotPlot()
 
 plt.show()
