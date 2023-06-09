@@ -27,4 +27,15 @@ Cleaned version of DS2-RAW.csv. The feature vector has 85 features, each one des
 DS1+DS2.csv: 
 Combination of DS1.csv and DS2.csv. Any overlapping magnetic compounds were only included once.
 
+# Code
+
+Clean-DS1-RAW.py:
+Cleans DS1-RAW.csv and saves cleaned data to Data/DS1.csv
+
+Clean-DS2-RAW.py:
+Cleans DS2-RAW.csv and saves cleaned data to Data/DS2.csv
+
+Combine-DS1+DS2.py:
+Combines DS1.csv and DS2.csv into one dataset. Any overlapping magnetic compounds are only included once. Saves combined dataset to Data/DS1+DS2.py.
+
 
