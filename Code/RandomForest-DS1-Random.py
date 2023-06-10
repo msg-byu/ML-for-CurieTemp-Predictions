@@ -199,7 +199,7 @@ def errorTCReal():
     plt.legend(loc = 'upper left', markerscale = 3)
     plt.ylabel('Experimental - Predicted $T_\mathrm{C}$ Error (K)')
     plt.title('Random Forest Experimental $T_\mathrm{C}$ vs Error')
-    plt.savefig("./Plots/Random Forest Experimental Error DS Random.png", bbox_inches='tight')
+    plt.savefig("./Plots/Random Forest Experimental Error DS1 Random.png", bbox_inches='tight')
     
 
 
