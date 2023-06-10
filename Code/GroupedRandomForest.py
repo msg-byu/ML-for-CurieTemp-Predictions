@@ -7,7 +7,7 @@ import csv
 import random as rnd
 from sklearn.ensemble import RandomForestRegressor
 
-MAJORITY_ELEMENT = 'O'
+MAJORITY_ELEMENT = 'Fe'
 
 
 # Reads in raw data and returns it in a list of lists
