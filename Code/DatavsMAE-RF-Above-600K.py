@@ -226,7 +226,7 @@ def trainVSMAEavg():
 
     plt.savefig('./Plots/MAE vs Training Data Size Above 600K.png', bbox_inches='tight')
 
-
+#Save the MAE values here so you don't have to run trainVSMAEavg() every time
 def plotPlot():
     
     x = [322, 332, 342, 352, 362, 372, 382, 392, 402, 412, 422, 432, 442, 452, 462, 472, 482, 492, 502, 512, 522, 532, 542, 552, 562, 572, 582, 592, 602, 612, 622, 632, 642]
